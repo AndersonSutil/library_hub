@@ -5,9 +5,11 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 public record LivroRequestDTO(
         @NotBlank(message = "Título é obrigatório")
+        @Pattern(regexp = "^[^<>]*$", message = "Tags HTML não são permitidas")
         String titulo,
 
         @NotBlank(message = "Autor é obrigatório")
