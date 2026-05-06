@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "4161f36a-723f-4e0f-90e8-0b5c117b385a",
+    "name": "Library Hub API",
+    "description": "API collection for Library Hub CRUD and management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Criar Livro",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"A Arte da Guerra\",\r\n  \"autor\": \"Sun Tzu\",\r\n  \"isbn\": \"978-85-352-7801-4\",\r\n  \"anoPublicacao\": 2018,\r\n  \"genero\": \"HISTORIA\",\r\n  \"disponivel\": true\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/livros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "livros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar Livros",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/livros?pagina=0&tamanho=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "livros"
+          ],
+          "query": [
+            {
+              "key": "pagina",
+              "value": "0"
+            },
+            {
+              "key": "tamanho",
+              "value": "10"
+            },
+            {
+              "key": "genero",
+              "value": "HISTORIA",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar Livro por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/livros/{{livro_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "livros",
+            "{{livro_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar Livro",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"A Arte da Guerra - Edição Comentada\",\r\n  \"autor\": \"Sun Tzu\",\r\n  \"isbn\": \"978-85-352-7801-4\",\r\n  \"anoPublicacao\": 2020,\r\n  \"genero\": \"HISTORIA\",\r\n  \"disponivel\": false\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/livros/{{livro_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "livros",
+            "{{livro_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualização Parcial de Livro",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"Novo Título (Patch)\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/livros/{{livro_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "livros",
+            "{{livro_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deletar Livro",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/livros/{{livro_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "livros",
+            "{{livro_id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+# Library Hub API
+
+###
+# @name Criar Livro
+POST http://localhost:8080/livros
+Content-Type: application/json
+
+{
+  "titulo": "A Arte da Guerra",
+  "autor": "Sun Tzu",
+  "isbn": "978-85-352-7801-4",
+  "anoPublicacao": 2018,
+  "genero": "HISTORIA",
+  "disponivel": true
+}
+
+###
+# @name Listar Livros
+GET http://localhost:8080/livros?
+    pagina=0&
+    tamanho=10&
+    genero=HISTORIA
+
+###
+@livro_id = 69fb6f71c5d5ac1cda9f5ce3
+# @name Buscar Livro por ID
+GET http://localhost:8080/livros/{{livro_id}}
+
+###
+# @name Atualizar Livro
+PUT http://localhost:8080/livros/{{livro_id}}
+Content-Type: application/json
+
+{
+  "titulo": "A Arte da Guerra - Edição Comentada",
+  "autor": "Sun Tzu",
+  "isbn": "978-85-352-7801-4",
+  "anoPublicacao": 2020,
+  "genero": "HISTORIA",
+  "disponivel": false
+}
+
+###
+# @name Atualização Parcial de Livro
+PATCH http://localhost:8080/livros/{{livro_id}}
+Content-Type: application/json
+
+{
+  "titulo": "Novo Título (Patch)"
+}
+
+###
+# @name Deletar Livro
+DELETE http://localhost:8080/livros/{{livro_id}}
